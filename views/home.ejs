@@ -1,0 +1,83 @@
+<%- include('partials/header.ejs') %>
+
+
+<div id="hp-main-projects">
+    <div id="main-project-carousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <% for( let i = 0; i < display.featuredProjects.length; i++ ) { %>
+                <button type="button" data-bs-target="#main-project-carousel" data-bs-slide-to="<%= i %>" class="active" aria-current="true" aria-label="Slide<%= i %>"></button>
+            <% } %>
+        </div>
+        <div class="carousel-inner col-lg-8 mx-auto">
+            <% var i = 0 %>
+            <% for( let i = 0; i < display.featuredProjects.length; i++ ) { %>
+                <% if (i === 0) { %>
+                    <div class="carousel-item active card">
+                        <img src="<%= display.featuredProjects[i].projectImages[0] %>" class="d-block w-100 m-project-img" alt="<%= display.featuredProjects[i].projectName %>">
+                        <a class="card-img-overlay text-decoration-none" href="/project/<%= display.featuredProjects[i]['id'] %>">
+                            <h5 class="card-title text-center">Card title</h5>
+                            <p class="card-text text-center"></p>
+                            <p class="card-text text-center"><small>Last updated 3 mins ago</small></p>
+                        </a>
+                    </div>
+                <% } else { %>
+                    <div class="carousel-item card">
+                        <img src="<%= display.featuredProjects[i].projectImages[0] %>" class="d-block w-100 m-project-img" alt="<%= display.featuredProjects[i].projectName %>">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title text-center">Card title</h5>
+                            <p class="card-text text-center"></p>
+                            <p class="card-text text-center"><small>Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                <% } %>
+            <% } %>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#main-project-carousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#main-project-carousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+
+
+<div id="hp-students">
+    <div class="card col-md-6 mx-auto">
+        <img src="https://lh3.googleusercontent.com/drive-viewer/AAOQEOS4wLsfzXcfXfJ8oI6I_LtNQN-vF1dK07b9Ra4JIwlnmfOlOZGFRJsxhO63dzMGW9vFn1P78sNYfFxW42p7uZM-iHRcfA=s2560" class="card-img-top mx-auto" alt="Tejas Gamit">
+        <div class="card-body">
+            <h5 class="card-title col-md-10 text-center mx-auto">Tejas Gamit</h5>
+            <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+    </div>
+
+    <% display.students.forEach(function (student){ %>
+        <div class="card col-xs-6 col-md-4 col-lg-3 student-card">
+            <img src="<%= student.profileImg %>" alt="<%= student.username %>" class="card-img-top mx-auto">
+            <div class="card-body">
+                <h5 class="card-title text-center"><%= student.username %></h5>
+                <p class="card-subtitle text-dull text-center">Studying in Grade <%= student.grade %>, MLC</p>
+            </div>
+        </div>
+    <% }); %>
+</div>
+
+<div class="hp-cotm">
+    <div class="card text-bg-dark my-4">
+        <img src="https://lh3.googleusercontent.com/drive-viewer/AAOQEORLUWqAqrSYbBZ4MB60tQAYud-0-Ek-SvB2VQvgAKFRAWOiso6RL2OPpWydbEjKD69vZ_VoPb-pW3M2cfifhnFpnGH5kg=s1600" class="card-img" alt="...">
+        <div class="card-img-overlay text-center">
+            <h5 class="card-title">Winner of COTM</h5>
+            <p class="card-text text-small">We, Ravenclaw were the winners of the Class of the month for month of February. COTM is a competition where all the classes compete per month to get the extra benefits</p>
+        </div>
+        <div class="card-body d-md-none text-center">
+            <h5 class="card-title">Winner of COTM</h5>
+            <p class="card-text text-small">We, Ravenclaw were the winners of the Class of the month for month of February. COTM is a competition where all the classes compete per month to get the extra benefits</p>
+        </div>
+    </div>
+</div>
+
+
+<%- include('partials/footer.ejs') %>

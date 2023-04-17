@@ -1,0 +1,35 @@
+<%- include('partials/header.ejs') %>
+
+
+<form action="/newStudent" method="POST" class="mt-5">
+    <div class="row m-2 p-2">
+        <div class="form-group product-form col-sm-12 col-md-2 my-3">
+            <label for="sname">Student Name:</label>
+            <input type="text" class="form-control" id="sname" placeholder="Enter Name" name="studentName" autocomplete="on" required>
+        </div>
+        <div class="form-group product-form col-sm-12 col-md-2 my-3">
+            <label for="grade">Student Grade:</label>
+            <input type="text" class="form-control" id="grade" placeholder="Enter Grade" name="studentGrade" autocomplete="on" required>
+        </div>
+        <div class="form-group product-form col-sm-12 col-md-6 my-3">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter Email" name="studentEmail" autocomplete="on" required>
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="form-group product-form col-sm-12 col-md-3 my-3">
+            <label for="pwd">Password:</label>
+            <input type="password" class="form-control" id="pwd" placeholder="Enter Password" name="studentPassword" required minlength="8">
+        </div>
+        <div class="form-group product-form col-sm-12 col-md-9 mt-3">
+            <label for="imgPath">Enter Profile Image path:</label>
+            <input type="text" class="form-control" id="imgPath" placeholder="Enter Path" name="studentImgPath" required>
+            <div id="emailHelp" class="form-text">Upload images on drive, make the image public and copy share link. Then go to this <a href="https://www.labnol.org/embed/google/drive/">Website</a> and paste your link and click convert. Then paste the converted link over here.</div>
+        </div>
+        <div class="form-group product-form col-sm-12 col-md-3 d-flex justify-content-center mb-3">
+            <button class="btn submit-btn">Submit</button>
+        </div>
+    </div>
+</form>
+
+
+<%- include('partials/footer.ejs') %>
